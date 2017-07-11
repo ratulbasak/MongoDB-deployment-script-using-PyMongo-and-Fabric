@@ -4,10 +4,10 @@ We are going to create a fabric file which will deploy the mongodb to the Intern
 
 Fabric is a Python library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks. It provides a basic suite of operations for executing local or remote shell commands (normally or via sudo) and uploading/downloading files, as well as auxiliary functionality such as prompting the running user for input, or aborting execution.
 
-Task-1:
+'''Task-1:'''
 First, clone the repo and you need to backup the db( or download from s3 then unzip db ) and place it to the repo directory where you cloned. As example, in our case "db-folder" is the backed up directory.
 
-Task-2:
+'''Task-2:'''
 Goto the fabric file and take a look at the ```dev()``` function. In this function there are some environment variables which defines the database information.
 
 ```
@@ -30,7 +30,7 @@ db.add_user('db-folder', 'db-password', roles=["readWrite", "dbAdmin"])
 
 The other environment variables like ```env.db_path```, ```env.db_name```, ```env.db_user``` and ```env.db_pwd``` contains the value of database path (/home/ubuntu/db-folder), name of database, username and password.
 
-Task-3:
+'''Task-3:'''
 In the ```install()``` function firstly, the system will be updated then install mongodb using apt sources. In the ```mongodb_config()``` function, mongodb systemd file path is specified. If the path exists then it'll remove the file and upload mongodb.service systemd file. Here is the snippet:
 ```
 def mongodb_config():
